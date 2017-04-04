@@ -1,0 +1,59 @@
+/*将所有元素的默认间距清除，方便自己设置，并且可以消除ul和li的圆点*/
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color:#bbb;
+}
+
+ul {
+    background:#fff;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    /*很重要，不然父元素的宽度过小时子元素的宽度就不够了，可以注释掉看看效果*/
+    white-space:nowrap;
+}
+nav > ul > li {
+    /* 使一级选单排成一列 */
+    display:inline-block;
+}
+
+ul li {
+    position:relative;
+}
+ul li a {
+    /*显示为block就可以添加padding了*/
+    display:block;
+    text-decoration:none;
+    color:#777;
+    padding:10px 20px;
+
+}
+
+/*第一层的子菜单向下展示*/
+li ul {
+    position:absolute;
+    top:100%;
+    list-style:none;
+    background:#fff;
+    box-shadow:0 3px 3px rgba(0,0,0,0.2);
+    display:none;
+}
+/*2层以后的菜单在右方显示*/
+ul ul ul {
+    position:absolute;
+    left:100%;
+    top:0;
+}
+
+ul li:hover > ul {
+    /* 鼠标进入母选单後，显示子选单 */
+    display:block;
+}
+
+ul li:hover {
+    background:#aaa;
+}
+ul li:hover > a {
+    color:#fff;
+}
